@@ -1,4 +1,4 @@
-export const host = "http://localhost:5000"
+export const host = "https://chitchat-backend-rrm5.onrender.com"
 
 export const registerHost = `${host}/api/register`
 export const loginHost = `${host}/api/login`
@@ -7,4 +7,3 @@ export const searchHost = `${host}/api/search-user`
 export const messageSendHost = `${host}/message/add-message`
 export const messageGetHost = `${host}/message/get-message`
 
-// https://jwt-auth-backend-c5gm.onrender.com
