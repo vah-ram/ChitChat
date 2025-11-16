@@ -82,7 +82,7 @@ function Message({ contact, currentUser, getContact }) {
             <header className="w-full h-[70px] pl-5 pr-5 absolute top-0 flex items-center">
 
               <button 
-                className="w-[30px] h-[30px] flex justify-center items-center cursor-pointer"
+                className="w-[30px] h-[30px] hidden justify-center items-center cursor-pointer max-md:flex" 
                 onClick={() => {
                   getContact(false)
                 }}>
