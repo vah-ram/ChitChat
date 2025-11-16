@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 import MenuBar from './MenuBar/MenuBar.js';
 import Chats from './Chats/Chats.js';
 import Message from './Message/Message.js';
+import axios from "axios";
+import { getProfileHost } from "./utils/Hosts.js";
 
 function Project() {
   const navigate = useNavigate();
@@ -15,11 +17,27 @@ function Project() {
   };
 
   useEffect(() => {
-    if(localStorage.getItem('Chat-user')) {
-      setCurrentUser(JSON.parse(localStorage.getItem('Chat-user')));
-    } else {
-      navigate('/login')
-    }
+    const callFunc = async() => {
+
+        try {
+          const res = await axios.get(getProfileHost, {
+            params: { token: localStorage.getItem("jwt_token") }
+          });
+
+          if(res.data.status) {
+            setCurrentUser(res.data.user);
+          } else {
+            navigate("/login")
+          }
+          
+        } catch(err) {
+          console.error(err)
+        }
+
+    };
+
+    callFunc();
+
   },[]);
 
   return (
@@ -27,8 +45,7 @@ function Project() {
       <MenuBar />
       <Chats 
         contact={contact}
-        getContact={getContact} 
-        currentUser={currentUser}/>
+        getContact={getContact}/>
       <Message 
         contact={contact} 
         currentUser={currentUser}

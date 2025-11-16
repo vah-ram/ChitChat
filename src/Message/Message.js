@@ -164,12 +164,12 @@ function Message({ contact, currentUser, getContact }) {
           :
           <>
             <img 
-            src='/Gif/typing-gif.gif' 
-            width={200} 
-            height={200} 
-            style={{ borderRadius: "5px" }}
-            alt='Gif'
-            className="max-md:hidden"/>
+              src='/Gif/typing-gif.gif' 
+              width={200} 
+              height={200} 
+              style={{ borderRadius: "5px" }}
+              alt='Gif'
+              className="max-md:hidden"/>
 
             <p className='text-white font-sans text-sm mt-2 max-md:hidden'>
               Выберите чат, чтобы начать перепысоваться
@@ -177,7 +177,9 @@ function Message({ contact, currentUser, getContact }) {
           </>
         }
 
-        <audio src="/audio/send-audio.mp3" ref={sendSoundRef}/>
+        <audio 
+          src="/audio/send-audio.mp3" 
+          ref={sendSoundRef}/>
     </div>
   )
 }

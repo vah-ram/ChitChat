@@ -26,7 +26,7 @@ function Login() {
         });
 
         if(res.data.status) {
-            localStorage.setItem("Chat-user", JSON.stringify(res.data.user))
+            localStorage.setItem("jwt_token", res.data.token)
             navigate('/');
         } else {
             toast.error(res.data.msg, {
