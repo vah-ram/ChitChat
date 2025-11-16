@@ -25,8 +25,14 @@ function Project() {
   return (
     <section className='flex w-full h-[100vh]'>
       <MenuBar />
-      <Chats getContact={getContact} currentUser={currentUser}/>
-      <Message contact={contact} currentUser={currentUser}/>
+      <Chats 
+        contact={contact}
+        getContact={getContact} 
+        currentUser={currentUser}/>
+      <Message 
+        contact={contact} 
+        currentUser={currentUser}
+        getContact={getContact}/>
     </section>
   )
 }

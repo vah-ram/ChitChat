@@ -30,8 +30,8 @@ function Register() {
                 });
 
             if(res.data.status) {
-                localStorage.setItem("Chat-user", JSON.stringify(res.data.user))
-                navigate('/')
+                localStorage.setItem("Chat-user", JSON.stringify(res.data.user));
+                    navigate('/login');
             } else {
                 toast.error(res.data.msg, {
                     position: "bottom-right",

@@ -3,10 +3,9 @@ import Contact from './Contact';
 import axios from "axios";
 import { searchHost } from "../utils/Hosts.js"
 
-function Chats({ getContact, currentUser }) {
+function Chats({ contact, getContact }) {
 
     const [ users, setUsers ] = useState([]);
-    const [ contact, setContact ] = useState();
 
     const searchUser = async(text) => {
         
@@ -29,19 +28,15 @@ function Chats({ getContact, currentUser }) {
 
     };
 
-    const isSelected = (user) => {
-        setContact(user)
-    }
-
   return (
     <div className={
-        `w-[calc(40%-100px)] max-md:w-[40%] max-md:p-2 
+        `w-[calc(40%-100px)] max-md:w-[40%] max-md:p-10 
         ${contact ? "max-md:hidden" : "max-md:w-full p-[30px]"}
          h-full text-white flex flex-col p-10 bg-[#242227c6]`
     }>
         <div className='w-full flex justify-between'>
             <h2 className='font-bold text-white font-sans text-xl'>
-                {currentUser?.username}
+                ChitChat
             </h2>
 
             <button className='cursor-pointer border-none outline-none bg-none'>
@@ -85,8 +80,7 @@ function Chats({ getContact, currentUser }) {
                             username={e.username} 
                             contactId={e._id} 
                             id={i}
-                            getContact={getContact}
-                            isSelected={isSelected}/>
+                            getContact={getContact}/>
                     )
                 })
                 :

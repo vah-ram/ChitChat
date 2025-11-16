@@ -6,4 +6,3 @@ export const verifyHost = `${host}/api/check-login`
 export const searchHost = `${host}/api/search-user`
 export const messageSendHost = `${host}/message/add-message`
 export const messageGetHost = `${host}/message/get-message`
-

@@ -8,7 +8,7 @@ function MenuBar() {
   return (
     <div 
       className='w-[100px] h-full bg-[#242227d7] flex flex-col gap-5 
-      items-center justify-center max-md:hidden'
+      items-center justify-center'
       onClick={() => navigate('/register')}>
 
         <button className='w-[30px] h-[30px] flex justify-center items-center cursor-pointer bg-none border-none outline-none'>

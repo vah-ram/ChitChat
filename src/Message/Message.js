@@ -6,7 +6,7 @@ import { host } from "../utils/Hosts.js";
 
 const socket = io.connect(host);
 
-function Message({ contact, currentUser }) {
+function Message({ contact, currentUser, getContact }) {
   const messageScroll = useRef(null);
   const sendSoundRef = useRef(null);
 
@@ -80,7 +80,19 @@ function Message({ contact, currentUser }) {
           ?
           <>
             <header className="w-full h-[70px] pl-5 pr-5 absolute top-0 flex items-center">
-              <div className="w-[35px] h-[35px] rounded-full overflow-hidden">
+
+              <button 
+                className="w-[30px] h-[30px] flex justify-center items-center cursor-pointer"
+                onClick={() => {
+                  getContact(false)
+                }}>
+                <img 
+                  src='/Img/back-icon.png' 
+                  className="w-[18px] h-[18px]"
+                  alt=""/>
+              </button>
+
+              <div className="w-[35px] h-[35px] rounded-full overflow-hidden max-md:ml-4">
                 <img alt="" src="/Img/user.jpg" className="w-full h-full"/>
               </div>
               
@@ -123,9 +135,9 @@ function Message({ contact, currentUser }) {
 
             </div>
 
-            <div className="w-full h-[70px] absolute bottom-0 flex items-center justify-center">
+            <div className="w-full h-[70px] absolute bottom-0 flex items-center justify-center gap-5 max-md:p-5">
               <form 
-                className='w-[70%] h-[50px] flex items-center justify-between pl-5 rounded-md bg-[#28272a81] border-1 border-[#7b7b7bb0]'
+                className='w-[70%] h-[50px] max-md:w-[85%] flex items-center justify-between pl-5 rounded-md bg-[#28272a81] border-1 border-[#7b7b7bb0]'
                 onSubmit={sendMessage}>
                   <input 
                       type="text"
@@ -142,6 +154,11 @@ function Message({ contact, currentUser }) {
                           alt=""/>
                   </button>
               </form>
+
+              <button className="w-[40px] h-[40px] flex justify-center items-center cursor-pointer">
+                <img src="/Img/files-icon.png"/>
+              </button>
+
             </div>
           </>
           :
